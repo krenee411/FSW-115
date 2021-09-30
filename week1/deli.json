@@ -1,0 +1,83 @@
+{
+    "Menu Items":[
+        {
+            "appetizers":{
+                
+                    "Spinach dip":{
+                        "descrpition":["Warm dip that is spicy and creamy."],
+                        "ingredients":["garlic", "jalapenos", "parmeson cheese", "spinach", "sour cream", "cream cheese"]
+                    },
+                    "Crab cakes":{
+                        "descrpition":["Hot fluffy cakes filled with fresh crab meat"],
+                        "ingredients":["mayo", "eggs", "worcestershier sauce", "hot sauce", "salt", "pepper", "lump crab meat","bread crumbs", "parsley"]
+                    },
+                    "Onion Rings":{
+                        "descrpition":["Crispy crunchy homemade onion rings"],
+                        "ingredients":["onion", "flour", "eggs", "milk", "bread crumbs", "salt", "baking powder"]
+                    }
+                }
+            },
+            {
+                "Cold Sandwich":{
+        
+                    "Chicken Wrap":{
+                        "descrpition":["Fresh grilled chicken wrapped in a flour tortilla with lettus and tomatos and your choice of dressing"],
+                        "ingredients":["chicken", "lettus", "tomato", "flour tortilla"]
+                    },
+                    "Cold Cut Club":{
+                        "descrpition":["Ham, turkey, capicollo, tomatos, and lettus all come together for a taste club"],
+                        "ingredients":["mayo", "provolone cheeese", "smoked ham", "smoked turkey", "capicollo", "tomatos", "lettus", "white sub bread"]
+                    },
+                    "BLT":{
+                        "descrpition":["Classic bacon, lettus, and tomato sandwich that taste like home"],
+                        "ingredients":["bacon", "lettus", "tomatos", "mayo", "chabatta bread"]
+                    }
+                }
+            },
+        
+        {
+            "Hot Sandwich":{
+        
+                "Grilled Chicken Sandwitch":{
+                    "descrpition":["Perfectly grilled chicken comes together with lettus and tomatos on a tosted chabatta bun"],
+                    "ingredients":["chabatta bread", "grilled chicken", "bacon", "lettus", "tomatos", "mayo", "pepper jack cheese"]
+                },
+                "Pulled Pork Sandwitch":{
+                    "descrpition":["Juicy pork shoulder shredded and coverd in a honey BBQ sauce"],
+                    "ingredients":["pork shoulder", "brown sugar", "BBQ sauce", "hot sauce", "white bun"]
+                },
+                "Grilled Cheese":{
+                    "descrpition":["Melty all american cheese on tosty white bread"],
+                    "ingredients":["american cheese", "butter", "white bread"]
+                }
+            }
+        },
+          {
+            "Desserts":{
+        
+                "Cheesecake":{
+                    "descrpition":["Creamy Traditional New York style cheese cake"],
+                    "ingredients":["graham cracker crust", "cream cheese", "sour cream", "sugar", "vanilla", "eggs", "brown sugar"]
+                },
+                "Strawberry Shortcake":{
+                    "descrpition":["Sweet strawberries over a fluffy melt in your mouth yellow spung cake topped with whip cream"],
+                    "ingredients":["cake flour", "sugar", "baking powder", "vanilla", "eggs", "butter", "milk", "fresh strawberries", "whip cream"]
+                },
+                "Chocolate Chip Cookie":{
+                    "descrpition":["Homemade hot and ready cookie with the perfect dip to dough ratio"],
+                    "ingredients":["sugar", "brown sugar", "vanilla", "flour", "eggs", "baking soda", "chocolate chips"]
+                }
+            }
+        },
+        {
+        "drinks":{
+                
+            "Coke products":["Coke", "Sprite","Diet Coke", "Barq's Root Beer" ],
+            "Pepsi products": ["Pepsi","Diet Pepsi", "Mugs Root Beer", "Mtn Dew"]
+           
+        }}
+    
+        
+        
+    ]
+}
