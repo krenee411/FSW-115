@@ -1,0 +1,21 @@
+body{
+    background-color: rgb(49, 2, 49);
+}
+ul{
+    color:blueviolet;
+    font-size: 50px;
+    border: rgb(88, 5, 109) solid 2px;
+    font-style: italic;
+    
+}
+ul:hover{
+    color: rgb(211, 102, 233);
+}
+
+/* #checkbox{
+    float: left;
+} */
+#checkbox {
+    background-color: red;
+    text-decoration: line-through;
+}
