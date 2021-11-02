@@ -7,20 +7,16 @@
     <title>Document</title>
     <link rel="stylesheet" href="todo.css">
 </head>
-<body id= "container">
-    <input id="input"
-                    type='text'
-                    id='todoType'
-                    placeholder='Enter Task'
-                />
-                <button id= "add" type="submit" onclick="add()">"Add Task</button>
-                <div id="listContainer">
-                    <ul id= "listItem">
+<body>
+    <form name = "myForm">
+        <input name = "name" type="text" placeholder = "Task Name"/>
+        <input name = "description" type="text" placeholder = "Task Description"/>
+        <input name = "price" type="text" placeholder = "Date"/>
 
-                    </ul>
-                </div>
+                <button type="submit">"Add Task</button>
+    </form>
 
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
     <script src="todo.js"></script>
 </body>
 </html>

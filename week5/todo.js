@@ -11,45 +11,60 @@ function changed(event){
     }else if(checkbox.checked == false){
         todo.removeAttribute('id')
     }
+
     //axios.put inside this function
     //isComplete:checkbox.checked
 }
 //get all
+function getData(){
 axios.get("http://api.bryanuniversity.edu/kelciMorgan/list/")
-.then(response => { console.log(response.data)
-    for(let i = 0; i < response.data.length; i++){
+.then(response => newData (response.data))
+.catch(error => console.log(error))
+}
+
+
+//adding new todo to axios
+function newData(data){
+    for(let i = 0; i < data.length; i++){
  
-        const ul = document.createElement('ul')
-        ul.setAttribute('id', 'item')
-        ul.textContent = response.data[i].name
+        const h3 = document.createElement('h3')
+        h3.setAttribute('id', 'item')
+        h3.textContent = data[i].name + data[i].description + data[i].price
 
         const check= document.createElement('input')
         check.setAttribute('type', 'checkbox')
         check.setAttribute('id', 'checkbox')
-        if(response.data[i].isComplete){
-            ul.setAttribute('id', 'checkbox')
+        if(data[i].isComplete){
+            h3.setAttribute('id', 'checkbox')
             check.checked= true
         }
             check.addEventListener('change', changed)
 
-        ul.appendChild(check)
-        document.body.appendChild(ul)
+        h3.appendChild(check)
+        document.body.appendChild(h3)
 
     }
+}
+getData();
+
+const form = document.myForm
+console.log(form)
+
+form.addEventListener("submit", function() {
+    const newTodo = {
+        name: form.name.value,
+        description: form.description.value,
+        price: form.price.value,
+    }
+    axios.post("http://api.bryanuniversity.edu/kelciMorgan/list", newTodo)
+    .then(response => newData (response.data)) 
+    .catch(error => console.log(error))
 })
-.catch(error => console.log(error))
-//adding new todo to axios
-function add(){
-    axios.post("http://api.bryanuniversity.edu/kelciMorgan/list")
+
+
+
     
-    //new items
-    var li = document.createElement("li")
-    var input = document.getElementById("input").value
-    //the name need to be todo
-    // the input value needs to be the description
-    var listItem = document.getElementById("listItem")
-    var item = document.createTextNode(input)
-    li.appendChild(item);
+/*
     if (input === '') {
         alert("Plese add a task");
       } else {
@@ -57,9 +72,4 @@ function add(){
       }
       document.getElementById("input").value = "";
     }
-    /* things needed to post a put
-        "name": "",
-        "description": "",
-        "isComplete": true or false(this is triggered onchange and needs to up the server)
-        does the isComplete need to be attached to a put request??
-    */
+}*/
