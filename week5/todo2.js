@@ -1,4 +1,5 @@
 // GET request with axios
+
 //url: http://api.bryanuniversity.edu/kelciMorgan/list
 function changed(event){
     console.log(event.target)
@@ -19,7 +20,7 @@ axios.get("http://api.bryanuniversity.edu/kelciMorgan1/list")
 .then(response => { console.log(response.data)
     for(let i = 0; i < response.data.length; i++){
  
-        const ul = document.createElement('ul')
+        const ul = document.createElement('h3')
         ul.setAttribute('id', 'item')
         ul.textContent = response.data[i].name
 
@@ -40,14 +41,33 @@ axios.get("http://api.bryanuniversity.edu/kelciMorgan1/list")
 .catch(error => console.log(error))
 
 
+const form = document.myForm
+
+form.addEventListener('submit', function(event){
+    event.preventDefault()
+
+    const newTodo = {
+        name: form.name.value,
+        description: form.description.value,
+        price: form.price.value,
+    }
+
+    axios.post("http://api.bryanuniversity.edu/kelciMorgan1/list",newTodo)
+    .then(response => console.log(response.data))
+    .catch(error => console.log(error))
+});
 
 
+//id of item to update
 
-//CORS error-- CORS-anywhere cross orgian resorse sharing 
-//https:cors-anywhere.herokuapp.com/
+response.data[i].isComplete
 
-//get one
-/*
-axios.get("http://api.bryanuniversity.edu/kelciMorgan/list/4461600c-f411-4e37-8fc3-be6bd5069064")
-.then(response => console.log(response.data))
-.catch(error => console.log(error))*/
+axios.put("http://api.bryanuniversity.edu/kelciMorgan1/list/", update)
+.then(response =>{ console.log(response.data)
+    if(checkbox.checked == true){
+        response.data[i].isComplete = true
+    }else if(checkbox.checked == false){
+        response.data[i].isComplete = false
+    }
+})
+    .catch(error => console.log(error))
