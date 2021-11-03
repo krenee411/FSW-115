@@ -1,20 +1,8 @@
-// GET request with axios
 
+// GET request with axios
+var thing =[]
 //url: http://api.bryanuniversity.edu/kelciMorgan/list
-function changed(event){
-    console.log(event.target)
-    console.log(event.target.parentNode)
-    var checkbox = event.target
-    var todo = event.target.parentNode
-    //if statement will be in the .then()
-    if(checkbox.checked == true){
-        todo.id= 'checkbox'
-    }else if(checkbox.checked == false){
-        todo.removeAttribute('id')
-    }
-    //axios.put inside this function
-    //isComplete:checkbox.checked
-}
+
 //get all
 axios.get("http://api.bryanuniversity.edu/kelciMorgan1/list")
 .then(response => { console.log(response.data)
@@ -23,6 +11,8 @@ axios.get("http://api.bryanuniversity.edu/kelciMorgan1/list")
         const ul = document.createElement('h3')
         ul.setAttribute('id', 'item')
         ul.textContent = response.data[i].name
+        var btn = document.createElement("button")
+
 
         const check= document.createElement('input')
         check.setAttribute('type', 'checkbox')
@@ -31,11 +21,33 @@ axios.get("http://api.bryanuniversity.edu/kelciMorgan1/list")
             ul.setAttribute('id', 'checkbox')
             check.checked= true
         }
-            check.addEventListener('change', changed)
+            check.addEventListener('change',function (event){
+                console.log(event.target)
+                console.log(event.target.parentNode)
+                var checkbox = event.target
+                var todo = event.target.parentNode
+                //if statement will be in the .then()
+                if(checkbox.checked == true){
+                    todo.id= 'checkbox'
+                    axios.put(`http://api.bryanuniversity.edu/kelciMorgan1/list/${thing[i]}`,{ 
+                        isComplete: true
+                    } )
+                    .catch(error => console.log(error))
+                }else if(checkbox.checked == false){
+                    todo.removeAttribute('id')
+                    axios.put(`http://api.bryanuniversity.edu/kelciMorgan1/list/${thing[i]}`,{ 
+                        isComplete: false
+                    } )
+                    .catch(error => console.log(error))
+                }
+                //axios.put inside this function
+                //isComplete:checkbox.checked
+            } )
 
         ul.appendChild(check)
         document.body.appendChild(ul)
-
+        thing.push(response.data[i]._id)
+        console.log(thing)
     }
 })
 .catch(error => console.log(error))
@@ -50,24 +62,23 @@ form.addEventListener('submit', function(event){
         name: form.name.value,
         description: form.description.value,
         price: form.price.value,
+        isComplete: false
     }
 
-    axios.post("http://api.bryanuniversity.edu/kelciMorgan1/list",newTodo)
-    .then(response => console.log(response.data))
+    axios.post("http://api.bryanuniversity.edu/kelciMorgan1/list", newTodo)
+    .then(response => {console.log(response.data)
+        thing.push(response.data._id)
+    })
     .catch(error => console.log(error))
 });
 
 
 //id of item to update
 
-response.data[i].isComplete
-
-axios.put("http://api.bryanuniversity.edu/kelciMorgan1/list/", update)
-.then(response =>{ console.log(response.data)
-    if(checkbox.checked == true){
-        response.data[i].isComplete = true
-    }else if(checkbox.checked == false){
-        response.data[i].isComplete = false
-    }
+axios.delete("http://api.bryanuniversity.edu/kelciMorgan1/list")
+.then(response => {console.log(response.data)
+    thing.remove(response.data._id)
 })
-    .catch(error => console.log(error))
+.catch(error => console.log(error))
+
+
