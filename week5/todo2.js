@@ -1,6 +1,7 @@
 
 // GET request with axios
 var thing =[]
+
 //url: http://api.bryanuniversity.edu/kelciMorgan/list
 
 //get all
@@ -11,8 +12,22 @@ axios.get("http://api.bryanuniversity.edu/kelciMorgan1/list")
         const ul = document.createElement('h3')
         ul.setAttribute('id', 'item')
         ul.textContent = response.data[i].name
-        var btn = document.createElement("button")
+        const btn = document.createElement("button")
+        btn.setAttribute('id', 'delete')
+        let x = document.createTextNode("\u00D7")
+        btn.appendChild(x)
+        ul.appendChild(btn)
 
+        
+btn.addEventListener("click", function () {
+    let id = response.data._id
+    axios.delete(`http://api.bryanuniversity.edu/kelciMorgan1/list/${id}`)
+    .then(response => {console.log(response.data)   
+        remove(response.data._id)  
+    })
+    .catch(error => console.log(error))
+
+})
 
         const check= document.createElement('input')
         check.setAttribute('type', 'checkbox')
@@ -31,7 +46,7 @@ axios.get("http://api.bryanuniversity.edu/kelciMorgan1/list")
                     todo.id= 'checkbox'
                     axios.put(`http://api.bryanuniversity.edu/kelciMorgan1/list/${thing[i]}`,{ 
                         isComplete: true
-                    } )
+                   } )
                     .catch(error => console.log(error))
                 }else if(checkbox.checked == false){
                     todo.removeAttribute('id')
@@ -66,19 +81,12 @@ form.addEventListener('submit', function(event){
     }
 
     axios.post("http://api.bryanuniversity.edu/kelciMorgan1/list", newTodo)
-    .then(response => {console.log(response.data)
+    .then(response => {console.log(response.data[i]._id)
         thing.push(response.data._id)
     })
     .catch(error => console.log(error))
 });
 
 
-//id of item to update
-
-axios.delete("http://api.bryanuniversity.edu/kelciMorgan1/list")
-.then(response => {console.log(response.data)
-    thing.remove(response.data._id)
-})
-.catch(error => console.log(error))
-
+//delete items
 
