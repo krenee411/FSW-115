@@ -2,6 +2,7 @@
 // GET request with axios
 var thing =[]
 var price = 0
+let div = document.getElementById("div")
 
 //url: http://api.bryanuniversity.edu/kelciMorgan/list
 
@@ -56,7 +57,7 @@ axios.get("http://api.bryanuniversity.edu/kelciMorgan1/list")
             } )
 
         ul.appendChild(check)
-        document.body.appendChild(ul)
+        div.appendChild(ul)
         thing.push(response.data[i]._id)
         console.log(thing)
 
@@ -81,7 +82,10 @@ axios.get("http://api.bryanuniversity.edu/kelciMorgan1/list")
 })
 
 
-
-
-
-
+axios.get("https://type.fit/api/quotes")
+.then(function(response){
+        let code = response.data[3].text
+       code.textContent = code.text
+       p.append(code)
+       
+    })

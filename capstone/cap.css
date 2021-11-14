@@ -1,0 +1,61 @@
+body{
+    background: url(task.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    
+}
+
+h3{
+    display: flexbox;
+    text-align: center;
+    color:black;
+    font-size: 50px;
+    font-style: italic;
+}
+
+
+#checkbox {
+    background-color:transparent;
+    text-decoration: line-through;
+}
+#input{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: black 3px solid;
+    border-radius: 8px;
+    padding: 5px;
+      width: 400px;
+  
+}
+#add{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    border: black 3px solid;
+    border-radius: 8px;
+    padding: 5px;
+      width: 400px;
+}
+header{
+    display: flexbox;
+    text-align: center;
+    text-decoration: underline;
+    font-size: 20px;
+    font-style:bold;
+}
+form{
+    display: flexbox;
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+div{
+border: double black 2px;
+background-color:tan;
+margin-top: 20px;
+margin-left: 180px;
+margin-right: 180px;
+}
