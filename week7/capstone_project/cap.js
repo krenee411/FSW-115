@@ -59,7 +59,7 @@ axios.get("http://api.bryanuniversity.edu/kelciMorgan1/list")
         ul.appendChild(check)
         div.appendChild(ul)
         thing.push(response.data[i]._id)
-        console.log(thing)
+
 
         const form = document.myForm
 
@@ -74,7 +74,9 @@ axios.get("http://api.bryanuniversity.edu/kelciMorgan1/list")
             }
          
             axios.post("http://api.bryanuniversity.edu/kelciMorgan1/list", newTodo)
-            .then(response => {console.log(response.data[i]._id)
+            .then(function(response){
+                console.log(response)
+
             })
         });
     }
